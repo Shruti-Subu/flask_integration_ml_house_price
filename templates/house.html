@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="alert alert-secondary " role="alert">
+
+  <h4>FILL UP THE DETAILS TO GET THE REAL ESTATE PRICES OF LOS ANGELES</h4>
+</div>
+  <div class="container" class="justify-content-around">
+   
+        <div class="d-flex flex-column justify-content-around" id="form">
+          <form action='/predict' method="post">
+            <div class="row">
+              <div class=" form-group col-md-4  col-xs-8">
+              
+                  <label for="bedroom"> NO. OF BEDROOMS </label>
+                  <input type="text" class="form-control" id="bedroom"  name="bedroom" placeholder="1" required>
+               
+              </div>
+              <div class="form-group col-md-4  col-xs-8">
+               
+                  <label for="bathroom">NO. OF BATHROOMS</label>
+                  <input  type="number"   class="form-control" id="bathroom" name="bathroom" placeholder="1" required>
+                
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="flat">flat area</label>
+                <input  type="number" step="any"  id="flat" class="form-control"  name="flat" placeholder="2" required>
+              </div>
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="lot">lot area</label>
+                <input  type="number" step="any"  id="lot" class="form-control"  name="lot" placeholder="2" required>
+              </div>
+            </div>
+             <div class="row">
+               <div class="col-md-4 col-xs-8 form-group" >
+                
+                  <label for="floors">NO. OF FLOORS</label>
+                  <input  type="number"  class="form-control" id="floors" name="floors" placeholder="1" required>
+    
+               </div>
+               <div class="form-group col-md-4 col-xs-8">
+                  <label for="wavefront">WAVEFRONT VIEW</label>
+                  <select class="form-control" id="wavefront" name="wavefront">
+                    <option value=1 selected>YES</option>
+                    <option value=0>NO</option>
+                  </select>
+               </div>
+             </div>
+              <div class="row">
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="vis">NO. OF TIMES</label>
+                <select class="form-control" id="vis" name="visited">
+                  <option value=4 selected>FOUR</option>
+                  <option value=3 >THRICE</option>
+                  <option value=2 >TWICE</option>
+                  <option value=1>ONCE</option>
+                  <option value=0>NONE</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="condition">CONDITION</label>
+                <select class="form-control" id="condition" name="condition">
+                  <option value=3 selected>EXCELLENT</option>
+                  <option value=2>FAIR</option>
+                  <option value=1>GOOD</option>
+                  <option value=0>OKAY</option>
+                  <option value=0>BAD</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3 col-xs-8">
+                <label for="grade">grade</label>
+                <input  type="number" class="form-control" id="grade" name="grade" required placehold="2" min=1 max=10>
+              </div>
+              <div class="form-group col-md-3 col-xs-8">
+                <label for="basement_house">basement area house</label>
+                <input  type="number" step="any"  id="basement_house" class="form-control"  name="basement_house" placeholder="2" required>
+              </div>
+              <div class="form-group col-md-3 col-xs-8">
+                <label for="basement">basement area</label>
+                <input  type="number" step="any"  id="basement" class="form-control"  name="basement" placeholder="2" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="age">age</label>
+                <input  type="number" step="any"  id="age" class="form-control"  name="age" placeholder="2" required>
+              </div>
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="zipcode">zipcode</label>
+                <input  type="number" class="form-control"  name="zipcode" placeholder="12345" required>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="latitude">latitude</label>
+                <input type="number" step="any"  class="form-control" id="latitude" placeholder="123.4" name="latitude" required>
+              </div>
+              <div  class="form-group col-md-4 col-xs-8">
+                <label for="longitude">longitude</label>
+                <input type="number" step="any"  class="form-control" id="longitude" placeholder="-112.4" name="longitude" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="living_reno">living renovation</label>
+                <input type="number" step="any"  class="form-control" id="living_reno" placeholder="1234" name="living_reno" required>
+              </div>
+              <div  class="form-group col-md-4 col-xs-8">
+                <label for="lot reno">lot renovation</label>
+                <input type="number" step="any"  class="form-control" id="lot reno" placeholder="1234" name="lot_reno" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-4 col-xs-8">
+                <label for="ever_reno">ever_renovated</label>
+                <select name="reno"  class="form-control" id="ever_reno">
+                  <option value="0" selected>NO</option>
+                  <option value="1">YES</option>
+                </select>    
+              </div>
+              <div  class="form-group col-md-4 col-xs-8">
+                <label for="year_reno">YEARS SINCE RENOVATION</label>
+                <input type="number" step="any"  class="form-control" id="year_reno" placeholder="0" name="year_reno" required>
+              </div>
+            </div>
+            <br>
+            <div class=form-group>
+              <button type="submit" class="btn btn-warning btn-lg float-right">SUBMIT</button>
+            </div>
+          </form>
+        </div>   
+       
+    
+  </div>
+   
+  
+
+ {% endblock %}
